@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="renderer" content="webkit">
+<title></title>
+    <link rel="stylesheet" href="/admin/css/pintuer.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <script src="/admin/js/jquery.js"></script>
+    <script src="/admin/js/pintuer.js"></script>  
+    <link rel="stylesheet" href="/admin/md/examples/css/style.css" />
+    <link rel="stylesheet" href="/admin/md/css/editormd.css" />
+</head>
+<body>
+<div class="panel admin-panel">
+
+  <div class="body-content">
+   
+      <div class="form-group">
+      
+      <div class="form-group">
+        <div class="field">
+        <form action="/admin/index/editarticle?id={$res[0]['id']}" method="post">
+            <input type="text" name='title'style="width: 500px;height: 30px;margin-bottom: 10px;" value="{$res[0]['title']}">
+        <div id="test-editormd">
+                  <textarea style="display:none;">{$res[0]['content']}</textarea>
+          </div>
+        </div>
+      </div>
+        <div class="field" style="margin-left: 200px;">
+          <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
+        </div>
+      </div>
+</form>
+  </div>
+</div>
+
+</body>
+<script src="/admin/md/examples/js/jquery.min.js"></script>
+<script src="/admin/md/editormd.min.js"></script>
+<script type="text/javascript">
+    var testEditor;
+
+    $(function() {
+        testEditor = editormd("test-editormd", {
+            width   : "90%",
+            height  : 640,
+            syncScrolling : "single",
+            path    : "/admin/md/lib/"
+        });
+    });
+</script>
+</html>
